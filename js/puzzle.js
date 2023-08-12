@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded',function(){
         this.difficulty = null;
         this.settings = {
             el             : null,
-            image          : 'codeXlogo.gif',
+            image          : 'puzzle-rick.gif',
             fullImg        : null,
             numcolumns     : 3,
             numrows        : 3,
@@ -759,12 +759,12 @@ document.addEventListener('DOMContentLoaded',function(){
                 var buttonElement = document.createElement("button");
                 
                 // Set button text
-                buttonElement.textContent = "Click Me";
+                buttonElement.textContent = "Results!";
                 
                 // Add a click event listener to the button
                 buttonElement.addEventListener("click", function() {
                     // Navigate to the specified URL when the button is clicked
-                    window.location.href = "result.html";
+                    window.location.href = "https://docs.google.com/spreadsheets/d/1ozsRJ6uC6-qNE8B6jI2yYPGpKzmeOGKH9PXYW_1ELpQ/edit#gid=0";
                 });
                 
                 // Append the button to the .resultButton element
