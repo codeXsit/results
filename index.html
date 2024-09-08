@@ -15,22 +15,25 @@
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default"></script>
     <script src="./js/puzzle.js"></script>
     <script>
-        document.addEventListener('touchmove', function(e) {
-          e.preventDefault();
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
         }, { passive: false });
     </script>
+    <style></style>
 </head>
 
-<body  style="background-color: black;">
-  
+<body style="background-color: black;">
 
-   <div class="contaner">
-    <div style="display: flex;justify-content: center;;" class="resultButton "></div>
-   
 
-    <div id="puzzle1" style="padding: 20px;"></div>
+    <div class="contaner">
 
-    <!-- <div class="options">
+
+        <h1 style="text-align: center;color: white;">Solve the Puzzle!</h1>
+        <div id="puzzle1" style="padding: 20px;">
+
+        </div>
+        <div style="display: flex;justify-content: center;;" class="resultButton "></div>
+        <!-- <div class="options">
         <div class="fgroup grid">
             <div class="fieldset">
                 <label for="numrows"># of rows</label>
@@ -69,11 +72,10 @@
         </div>
     </div> -->
 
-</div>
-
+    </div>
     <script type="text/javascript">
 
-        document.addEventListener('DOMContentLoaded',function() {
+        document.addEventListener('DOMContentLoaded', function () {
             function getURLParameter(sParam) {
                 const sPageURL = decodeURIComponent(window.location.search.substring(1)),
                     sURLVariables = sPageURL.split('&');
@@ -90,23 +92,23 @@
             }
 
             const opts = {};
-            const image = (getURLParameter('image')) ? getURLParameter('image') : "puzzle-rick.gif";
+            const image = (getURLParameter('image')) ? getURLParameter('image') : "deadpool-dance-bye-bye-bye.gif";
             const puzzle1 = document.querySelector('#puzzle1');
             puzzle1.pz = new Puzzle({
-                el           : puzzle1,
-                image        : image,
-                difficulty   : "expert",
-                dragenter    : function(evt){onDragEnter(evt)},
-                dragleave    : function(evt){onDragLeave(evt)},
-                mousedown    : function(evt){onMouseDown(evt)},
-                mouseup      : function(evt){onMouseUp(evt)},
-                finished     : function(evt){puzzleFin(evt)}
+                el: puzzle1,
+                image: image,
+                difficulty: "expert",
+                dragenter: function (evt) { onDragEnter(evt) },
+                dragleave: function (evt) { onDragLeave(evt) },
+                mousedown: function (evt) { onMouseDown(evt) },
+                mouseup: function (evt) { onMouseUp(evt) },
+                finished: function (evt) { puzzleFin(evt) }
             }).init();
 
             // Puzzle events
 
             function onDragEnter(evt) {
-                if (!evt.target.draggable) { 
+                if (!evt.target.draggable) {
                     evt.target.classList.add('highlight');
                 }
             }
@@ -126,21 +128,21 @@
             }
 
             function puzzleFin(evt) {
-                setTimeout(function() {
-                    Object.assign(evt.self.fullImg.style,{'opacity':1,'z-index':1});
-                }.bind(evt),300); 
+                setTimeout(function () {
+                    Object.assign(evt.self.fullImg.style, { 'opacity': 1, 'z-index': 1 });
+                }.bind(evt), 300);
             }
 
             // Update buttons
-            document.querySelectorAll('div[data-attr="reset"]').forEach(function(item){
-                item.addEventListener('click',function(evt){
+            document.querySelectorAll('div[data-attr="reset"]').forEach(function (item) {
+                item.addEventListener('click', function (evt) {
                     updatePuzzle(evt);
                 });
             });
-            
+
             // Make sure number inputs are between 1 and 10
-            document.querySelectorAll('input[type="number"]').forEach(function(item){
-                item.addEventListener('change',function(){
+            document.querySelectorAll('input[type="number"]').forEach(function (item) {
+                item.addEventListener('change', function () {
                     if (Number(this.value) > 10) {
                         this.value = 10;
                     } else if (Number(this.value) <= 0) {
@@ -151,7 +153,7 @@
 
             // Update puzzle and reinitialize
             function updatePuzzle() {
-                document.querySelectorAll('.options input').forEach(function(item){
+                document.querySelectorAll('.options input').forEach(function (item) {
                     if (item.value.length && item.type === "text" || item.type === "number") {
                         opts[item.name] = item.value;
                     }
@@ -161,9 +163,10 @@
                     }
                 });
                 puzzle1.pz.usropts = opts;
-                puzzle1.pz.init();      
+                puzzle1.pz.init();
             }
         });
     </script>
 </body>
+
 </html>

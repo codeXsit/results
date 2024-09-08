@@ -764,7 +764,7 @@ document.addEventListener('DOMContentLoaded',function(){
                 // Add a click event listener to the button
                 buttonElement.addEventListener("click", function() {
                     // Navigate to the specified URL when the button is clicked
-                    window.location.href = "https://docs.google.com/spreadsheets/d/1ozsRJ6uC6-qNE8B6jI2yYPGpKzmeOGKH9PXYW_1ELpQ/edit#gid=0";
+                    window.location.href = "https://docs.google.com/spreadsheets/d/1ThZasJiF1fOXuCElMUlWN6ZLXAuG2CajmLQU3mYAvHE/edit?gid=0#gid=0";
                 });
                 
                 // Append the button to the .resultButton element
